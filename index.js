@@ -15,6 +15,11 @@ io.on('connection', (socket) => {
     socket.on('chat message', (msg) => {
         io.emit('chat message', msg);
     });
+
+
+    socket.on('disconnect', (a) => {
+        io.emit('chat message', "Someone just disconnect");
+    });
 });
 
 server.listen(3000, () => {
